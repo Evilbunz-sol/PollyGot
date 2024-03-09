@@ -48,7 +48,7 @@ export default function Chat() {
         
         setIsTranslating(true)
         const openai = new OpenAI({
-            apiKey: process.env.OPENAI_API_KEY,
+            apiKey: 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,
             dangerouslyAllowBrowser: true
         })
         
@@ -164,7 +164,7 @@ export default function Chat() {
                 )}
                 
                 {error && <p className="error-message">{error}</p>}
-                <button className="submit-btn" disabled={isTranslating || resetForm}> 
+                <button className="submit-btn"> 
                     {resetForm ? "Start Over" : "Translate"} 
                 </button>
             </form>
