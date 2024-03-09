@@ -103,7 +103,7 @@ export default function Chat() {
                 <br />
 
             <legend className="form-title">
-                {!resetForm ? "Your translation 👇" : "Select language 👇"} 
+                {!resetForm ? "Select language 👇" : "Your translation 👇"} 
             </legend>
             
             {resetForm ?  (
