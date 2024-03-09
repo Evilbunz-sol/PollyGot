@@ -164,7 +164,7 @@ export default function Chat() {
                 )}
                 
                 {error && <p className="error-message">{error}</p>}
-                <button className="submit-btn"> 
+                <button className="submit-btn" disabled={isTranslating || resetForm}> 
                     {resetForm ? "Start Over" : "Translate"} 
                 </button>
             </form>
