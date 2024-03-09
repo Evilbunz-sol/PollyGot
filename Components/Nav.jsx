@@ -7,8 +7,7 @@ export default function Nav() {
     return (
         <div className="banner-img">     
             <div className="nav-links">
-            <Link to="/"> Translate </Link>
-            <Link to="/chat"> Chat </Link> 
+            <Link to="/"> Home </Link>
             </div>    
         
             <div className= "flex">
