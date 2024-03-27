@@ -48,7 +48,7 @@ export default function Chat() {
         
         setIsTranslating(true)
         const openai = new OpenAI({
-            apiKey: "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",
+            apiKey: "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",
             dangerouslyAllowBrowser: true
         })
         
