@@ -47,12 +47,8 @@ export default function Chat() {
         }
         
         setIsTranslating(true)
-        const openai = new OpenAI({
-            apiKey: "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",
-            dangerouslyAllowBrowser: true
-        })
         
-        const message = [{
+        const messages = [{
             role: "system",
             content: "You are a multi-lingual expert that can translate english, japanese, spanish and french. You are going to translate from english to one of the three other languages and provide the user with the most accurate answer possible.",},
         {
@@ -60,20 +56,29 @@ export default function Chat() {
             content: `Translate this text: ${formData.translateText}, in ${formData.language}.`},
         ] 
         
-        const response = await openai.chat.completions.create({
-            model: "gpt-4-0125-preview",
-            messages: message,
-            temperature: 1,
-            presence_penalty: 0,
-            frequency_penalty: 0,
+    
+        try {
+        const url = "https://openai-api-worker.jameel-altamash.workers.dev"
+    
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(messages)
         })
+        const data = await response.json()
         
-        const translation = response.choices[0].message.content
+        const translation = data.content
         setFormData(prevFormData => ({
             ...prevFormData,
             translationResult: translation,
         }))
         setIsTranslating(false)
+        
+    } catch (err) {
+        console.error(err.message)
+    }
     }
         
     
